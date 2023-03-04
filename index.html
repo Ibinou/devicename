@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    	<link rel="stylesheet" type="text/css" href="style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <title>Détection du type d'idevice</title>
-    <meta charset="UTF-8">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="image-container"></div>
-  </body>
+<head>
+ <title>Détection du modèle d'iPhone en JavaScript</title>
+ <script>
+  var userAgent = navigator.userAgent;
+  var model = "Inconnu";
+  if (userAgent.match(/iPhone/i)) {
+   if (userAgent.match(/iPhone\s*SE/i)) {
+    model = "iPhone SE";
+   } else if (userAgent.match(/iPhone\s*6/i)) {
+    model = "iPhone 6/6S/7/8";
+   } else if (userAgent.match(/iPhone\s*6\s*Plus/i)) {
+    model = "iPhone 6/6S/7/8 Plus";
+   } else if (userAgent.match(/iPhone\s*X/i)) {
+    model = "iPhone X/XS/11 Pro";
+   } else if (userAgent.match(/iPhone\s*XR/i)) {
+    model = "iPhone XR/11";
+   } else if (userAgent.match(/iPhone\s*XS\s*Max/i)) {
+    model = "iPhone XS Max/11 Pro Max";
+   } else if (userAgent.match(/iPhone\s*11/i)) {
+    model = "iPhone 11";
+   } else if (userAgent.match(/iPhone\s*12/i)) {
+    model = "iPhone 12/12 Pro";
+   } else if (userAgent.match(/iPhone\s*12\s*Mini/i)) {
+    model = "iPhone 12 Mini";
+   } else if (userAgent.match(/iPhone\s*12\s*Pro\s*Max/i)) {
+    model = "iPhone 12 Pro Max";
+   }
+  }
+ </script>
+</head>
+<body>
+ <p>Votre modèle d'iPhone est : <span id="model"></span></p>
+ <script>
+  document.getElementById("model").innerHTML = model;
+ </script>
+</body>
 </html>
